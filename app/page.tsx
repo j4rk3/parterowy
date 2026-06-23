@@ -93,19 +93,19 @@ export default function Home() {
 
         <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-16 text-center">
           <p
-            className="text-xs uppercase tracking-widest text-white/60 mb-3"
+            className="hidden md:block text-xs uppercase tracking-widest text-white/60 mb-3"
             style={{ marginBottom: '12px', transform: 'translateY(-20px)' }}
           >
             S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
           </p>
           <h1
-            className="text-5xl md:text-6xl font-medium text-white leading-tight max-w-3xl mb-4"
+            className="hidden md:block text-5xl md:text-6xl font-medium text-white leading-tight max-w-3xl mb-4"
             style={{ transform: 'translateY(-20px)' }}
           >
             Domy parterowe budowane z pasją
           </h1>
           <p
-            className="text-white/70 text-base max-w-lg mb-12 leading-relaxed"
+            className="hidden md:block text-white/70 text-base max-w-lg mb-12 leading-relaxed"
             style={{ transform: 'translateY(-20px)' }}
           >
             Budujemy od fundamentów po stan deweloperski na Śląsku.
