@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState, useRef } from 'react'
+import { useEffect, useState, useRef, memo } from 'react'
 import { withGarage, withoutGarage } from '@/lib/projects'
 
 function useCountUp(target: number, duration: number, start: boolean) {
@@ -20,7 +20,46 @@ function useCountUp(target: number, duration: number, start: boolean) {
   }, [start, target, duration])
   return count
 }
+const TypewriterHero = memo(function TypewriterHero() {
+  const text = 'Domy parterowe budowane z pasją...'
+  const [displayed, setDisplayed] = useState('')
+  const [done, setDone] = useState(false)
+  const i = useRef(0)
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (i.current < text.length) {
+        setDisplayed(text.slice(0, i.current + 1))
+        i.current++
+      } else {
+        clearInterval(interval)
+        setTimeout(() => setDone(true), 200)
+      }
+    }, 55)
+    return () => clearInterval(interval)
+  }, [])
+
+  return (
+    <div className="hidden md:block text-center mb-12">
+      <p
+        className={`text-xs uppercase tracking-widest text-white/60 mb-4 whitespace-nowrap transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
+      >
+        S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
+      </p>
+      <h1 className="text-4xl md:text-6xl font-medium text-white leading-tight mb-4 min-h-[1.2em]">
+        {displayed}
+        <span
+          className={`inline-block w-0.5 h-[0.9em] bg-white ml-1 align-middle animate-pulse ${done ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        />
+      </h1>
+      <p
+        className={`hidden md:block text-white/70 text-base max-w-lg mx-auto leading-relaxed transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
+      >
+        Budujemy od fundamentów po stan deweloperski na Śląsku.
+      </p>
+    </div>
+  )
+})
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [parallaxY, setParallaxY] = useState(0)
@@ -51,46 +90,7 @@ export default function Home() {
     if (statsRef.current) observer.observe(statsRef.current)
     return () => observer.disconnect()
   }, [])
-  function TypewriterHero() {
-    const text = 'Domy parterowe budowane z pasją...'
-    const [displayed, setDisplayed] = useState('')
-    const [done, setDone] = useState(false)
-    const i = useRef(0)
 
-    useEffect(() => {
-      const interval = setInterval(() => {
-        if (i.current < text.length) {
-          setDisplayed(text.slice(0, i.current + 1))
-          i.current++
-        } else {
-          clearInterval(interval)
-          setTimeout(() => setDone(true), 200)
-        }
-      }, 55)
-      return () => clearInterval(interval)
-    }, [])
-
-    return (
-      <div className="hidden md:block text-center mb-12">
-        <p
-          className={`text-xs uppercase tracking-widest text-white/60 mb-4 whitespace-nowrap transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
-        >
-          S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
-        </p>
-        <h1 className="text-4xl md:text-6xl font-medium text-white leading-tight mb-4 min-h-[1.2em]">
-          {displayed}
-          <span
-            className={`inline-block w-0.5 h-[0.9em] bg-white ml-1 align-middle animate-pulse ${done ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
-          />
-        </h1>
-        <p
-          className={`hidden md:block text-white/70 text-base max-w-lg mx-auto leading-relaxed transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
-        >
-          Budujemy od fundamentów po stan deweloperski na Śląsku.
-        </p>
-      </div>
-    )
-  }
   return (
     <div>
       <style>{`
