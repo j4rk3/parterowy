@@ -1,5 +1,5 @@
 'use client'
-
+import SeoSection from '@/components/SeoSection'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState, useRef, memo } from 'react'
@@ -259,126 +259,8 @@ export default function Home() {
           </div>
         </div>
       </section>
-
       {/* SEO */}
-      {/* SEO */}
-      <section className="bg-gray-50 px-4 py-24">
-        <div className="max-w-5xl mx-auto">
-          <FadeIn delay={0}>
-            <h2 className="text-3xl font-medium text-gray-900 mb-4">
-              Domy parterowe Wodzisław Śląski
-            </h2>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-2xl mb-16">
-              Nasza firma S-BUD z Wodzisławia Śląskiego specjalizuje się w
-              budowie domów parterowych. Każda parterówka powstaje od
-              fundamentów aż po stan deweloperski. Wybierając domy parterowe,
-              zyskujesz przede wszystkim wygodę i bezpieczeństwo.
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <FadeIn delay={100}>
-              <div className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-2xl mb-3">💰</div>
-                <h3 className="text-base font-medium text-gray-900 mb-2">
-                  Niższe koszty budowy
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Mniej betonu pod fundamenty i łatwiejszy dach to realna
-                  oszczędność. Parterówka do 150 m² jest tańsza niż dom piętrowy
-                  o tej samej wielkości.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-2xl mb-3">🔨</div>
-                <h3 className="text-base font-medium text-gray-900 mb-2">
-                  Łatwa rozbudowa
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Jeśli kiedyś zechcesz dobudować garaż czy pokój dla gości,
-                  parterówka ułatwia pracę i zmniejsza koszty przeróbek.
-                </p>
-              </div>
-            </FadeIn>
-            <FadeIn delay={300}>
-              <div className="bg-white rounded-2xl p-7 border border-gray-100">
-                <div className="text-2xl mb-3">🏡</div>
-                <h3 className="text-base font-medium text-gray-900 mb-2">
-                  Bezpieczna przestrzeń
-                </h3>
-                <p className="text-sm text-gray-500 leading-relaxed">
-                  Brak schodów zapewnia bezpieczeństwo dla dzieci i seniorów.
-                  Gładkie przejście na taras bez progu to wygoda na co dzień.
-                </p>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0}>
-            <h2 className="text-3xl font-medium text-gray-900 mb-12 text-center">
-              Nasze realizacje
-            </h2>
-          </FadeIn>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
-            <FadeIn delay={100}>
-              <div className="bg-white rounded-2xl overflow-hidden border border-gray-100">
-                <div className="relative w-full aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/KdPN9DvguHo"
-                    title="Realizacja S-BUD 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-medium text-gray-900">
-                    Realizacja — Dom parterowy z garażem
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1">Wodzisław Śląski</p>
-                </div>
-              </div>
-            </FadeIn>
-            <FadeIn delay={200}>
-              <div className="bg-white rounded-2xl overflow-hidden border border-gray-100">
-                <div className="relative w-full aspect-video">
-                  <iframe
-                    src="https://www.youtube.com/embed/_8Uqko7fZYw"
-                    title="Realizacja S-BUD 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-5">
-                  <p className="text-sm font-medium text-gray-900">
-                    Realizacja — Dom parterowy bez garażu
-                  </p>
-                  <p className="text-xs text-gray-400 mt-1">Wodzisław Śląski</p>
-                </div>
-              </div>
-            </FadeIn>
-          </div>
-
-          <FadeIn delay={0}>
-            <div className="bg-white rounded-2xl p-8 border border-gray-100 max-w-2xl mx-auto text-center">
-              <h3 className="text-xl font-medium text-gray-900 mb-3">
-                W skrócie
-              </h3>
-              <p className="text-sm text-gray-500 leading-relaxed">
-                Domy parterowe Wodzisław Śląski to doskonała opcja dla rodzin z
-                dziećmi, seniorów i wszystkich, którzy lubią prostą i wygodną
-                przestrzeń. Parterówka od S-BUD łączy nowoczesny design z
-                funkcjonalnością. Jeśli marzysz o domu, w którym każdy krok jest
-                prosty, a ogród staje się częścią wnętrza, skontaktuj się z nami
-                już dziś.
-              </p>
-            </div>
-          </FadeIn>
-        </div>
-      </section>
+      <SeoSection />
     </div>
   )
 }
