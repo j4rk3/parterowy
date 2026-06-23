@@ -51,7 +51,46 @@ export default function Home() {
     if (statsRef.current) observer.observe(statsRef.current)
     return () => observer.disconnect()
   }, [])
+  function TypewriterHero() {
+    const text = 'Domy parterowe budowane z pasją...'
+    const [displayed, setDisplayed] = useState('')
+    const [done, setDone] = useState(false)
+    const i = useRef(0)
 
+    useEffect(() => {
+      const interval = setInterval(() => {
+        if (i.current < text.length) {
+          setDisplayed(text.slice(0, i.current + 1))
+          i.current++
+        } else {
+          clearInterval(interval)
+          setTimeout(() => setDone(true), 200)
+        }
+      }, 55)
+      return () => clearInterval(interval)
+    }, [])
+
+    return (
+      <div className="hidden md:block text-center mb-12">
+        <p
+          className={`text-xs uppercase tracking-widest text-white/60 mb-4 whitespace-nowrap transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
+        >
+          S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
+        </p>
+        <h1 className="text-4xl md:text-6xl font-medium text-white leading-tight mb-4 min-h-[1.2em]">
+          {displayed}
+          <span
+            className={`inline-block w-0.5 h-[0.9em] bg-white ml-1 align-middle animate-pulse ${done ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+          />
+        </h1>
+        <p
+          className={`hidden md:block text-white/70 text-base max-w-lg mx-auto leading-relaxed transition-opacity duration-700 ${done ? 'opacity-100' : 'opacity-0'}`}
+        >
+          Budujemy od fundamentów po stan deweloperski na Śląsku.
+        </p>
+      </div>
+    )
+  }
   return (
     <div>
       <style>{`
@@ -91,28 +130,11 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-16 text-center">
-          <p
-            className="hidden md:block text-xs uppercase tracking-widest text-white/60 mb-3"
-            style={{ marginBottom: '12px', transform: 'translateY(-20px)' }}
-          >
-            S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
-          </p>
-          <h1
-            className="hidden md:block text-5xl md:text-6xl font-medium text-white leading-tight max-w-3xl mb-4"
-            style={{ transform: 'translateY(-20px)' }}
-          >
-            Domy parterowe budowane z pasją
-          </h1>
-          <p
-            className="hidden md:block text-white/70 text-base max-w-lg mb-12 leading-relaxed"
-            style={{ transform: 'translateY(-20px)' }}
-          >
-            Budujemy od fundamentów po stan deweloperski na Śląsku.
-          </p>
+        <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-10 md:justify-center md:pb-0 xl:justify-start xl:pt-48 text-center">
+          <TypewriterHero />
 
           {/* Kafle — zdjęcie na górze, białe tło na dole */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-3xl">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-3xl xl:max-w-5xl">
             <Link
               href="/parterowy-z-garazem"
               className="group overflow-hidden rounded-2xl transition-all duration-300"
