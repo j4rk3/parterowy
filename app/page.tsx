@@ -161,11 +161,12 @@ export default function Home() {
         </div>
         <div className="absolute inset-0 bg-black/40" />
 
-        <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-10 md:justify-center md:pb-0 xl:justify-start xl:pt-48 text-center">
+        <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-4 md:justify-center md:pb-0 xl:justify-start xl:pt-48 text-center">
           <TypewriterHero />
 
           {/* Kafle — zdjęcie na górze, białe tło na dole */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-3xl xl:max-w-5xl">
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl mt-16 md:mt-0">
             <Link
               href="/parterowy-z-garazem"
               className="group overflow-hidden rounded-2xl transition-all duration-300"
