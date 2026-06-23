@@ -56,7 +56,7 @@ export default function Home() {
     <div>
       <style>{`
         nav {
-          background: ${scrolled ? 'rgba(255,255,255,0.82)' : 'transparent'} !important;
+          background: ${scrolled ? 'rgba(255,255,255,0.2)' : 'transparent'} !important;
           backdrop-filter: ${scrolled ? 'blur(14px)' : 'none'} !important;
           border-bottom: ${scrolled ? '0.5px solid rgba(0,0,0,0.08)' : 'none'} !important;
           box-shadow: none !important;
@@ -94,19 +94,19 @@ export default function Home() {
         <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-16 text-center">
           <p
             className="text-xs uppercase tracking-widest text-white/60 mb-3"
-            style={{ marginBottom: '12px', transform: 'translateY(-50px)' }}
+            style={{ marginBottom: '12px', transform: 'translateY(-20px)' }}
           >
             S-BUD Firma Ogólnobudowlana · Wodzisław Śląski
           </p>
           <h1
             className="text-5xl md:text-6xl font-medium text-white leading-tight max-w-3xl mb-4"
-            style={{ transform: 'translateY(-50px)' }}
+            style={{ transform: 'translateY(-20px)' }}
           >
             Domy parterowe budowane z pasją
           </h1>
           <p
             className="text-white/70 text-base max-w-lg mb-12 leading-relaxed"
-            style={{ transform: 'translateY(-50px)' }}
+            style={{ transform: 'translateY(-20px)' }}
           >
             Budujemy od fundamentów po stan deweloperski na Śląsku.
           </p>
@@ -115,7 +115,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5 w-full max-w-3xl">
             <Link
               href="/parterowy-z-garazem"
-              className="group overflow-hidden rounded-2xl bg-white hover:shadow-lg transition-all duration-300"
+              className="group overflow-hidden rounded-2xl transition-all duration-300"
             >
               <div className="relative h-56">
                 <Image
@@ -125,18 +125,18 @@ export default function Home() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-5 text-left bg-white">
-                <h2 className="text-base font-medium text-gray-900 mb-1">
+              <div className="p-5 text-left bg-white/10 backdrop-blur-md">
+                <h2 className="text-base font-medium text-white mb-1">
                   Z garażem
                 </h2>
-                <p className="text-sm text-gray-500 mb-3">
+                <p className="text-sm text-white/70 mb-3">
                   Miejsce dla auta zintegrowane z bryłą domu.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-white/50">
                     {withGarage.length} projekty
                   </span>
-                  <span className="text-gray-400 group-hover:text-gray-900 transition-colors">
+                  <span className="text-white/50 group-hover:text-white transition-colors">
                     →
                   </span>
                 </div>
@@ -145,7 +145,7 @@ export default function Home() {
 
             <Link
               href="/parterowy-bez-garazu"
-              className="group overflow-hidden rounded-2xl bg-white hover:shadow-lg transition-all duration-300"
+              className="group overflow-hidden rounded-2xl transition-all duration-300"
             >
               <div className="relative h-56">
                 <Image
@@ -155,18 +155,18 @@ export default function Home() {
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
-              <div className="p-5 text-left bg-white">
-                <h2 className="text-base font-medium text-gray-900 mb-1">
+              <div className="p-5 text-left bg-white/20 backdrop-blur-md">
+                <h2 className="text-base font-medium text-white mb-1">
                   Bez garażu
                 </h2>
-                <p className="text-sm text-gray-500 mb-3">
+                <p className="text-sm text-white/70 mb-3">
                   Maksymalna przestrzeń użytkowa dla rodziny.
                 </p>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-gray-400">
+                  <span className="text-xs text-white/50">
                     {withoutGarage.length} projekty
                   </span>
-                  <span className="text-gray-400 group-hover:text-gray-900 transition-colors">
+                  <span className="text-white/50 group-hover:text-white transition-colors">
                     →
                   </span>
                 </div>
