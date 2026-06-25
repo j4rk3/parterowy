@@ -1,3 +1,5 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -50,12 +52,18 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/kontakt"
-                  className="text-sm hover:text-gray-900 transition-colors"
+                <a
+                  href="#kontakt"
+                  className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+                  onClick={(e) => {
+                    e.preventDefault()
+                    document
+                      .getElementById('kontakt')
+                      ?.scrollIntoView({ behavior: 'smooth' })
+                  }}
                 >
                   Kontakt
-                </Link>
+                </a>
               </li>
             </ul>
           </div>
@@ -147,19 +155,25 @@ export default function Footer() {
                   </Link>
                 </li>
                 <li>
-                  <Link
-                    href="/kontakt"
+                  <a
+                    href="#kontakt"
                     className="text-sm hover:text-gray-900 transition-colors"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      document
+                        .getElementById('kontakt')
+                        ?.scrollIntoView({ behavior: 'smooth' })
+                    }}
                   >
                     Kontakt
-                  </Link>
+                  </a>
                 </li>
               </ul>
             </div>
             <div>
-              <h3 className="text-gray-900 text-xs font-semibold mb-4 uppercase tracking-wider">
+              <a className="text-gray-900 text-xs font-semibold mb-4 uppercase tracking-wider">
                 Kontakt
-              </h3>
+              </a>
               <ul className="flex flex-col gap-3 text-sm">
                 <li className="leading-relaxed">
                   ul. Rynek 6<br />

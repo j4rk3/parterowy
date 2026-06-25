@@ -41,12 +41,18 @@ export default function Navbar() {
             >
               Obszar działalności
             </Link>
-            <Link
-              href="/kontakt"
+            <a
+              href="#kontakt"
               className="text-sm text-gray-600 hover:text-gray-900 transition-colors"
+              onClick={(e) => {
+                e.preventDefault()
+                document
+                  .getElementById('kontakt')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }}
             >
               Kontakt
-            </Link>
+            </a>
             <a
               href="tel:577282100"
               className="bg-gray-900 text-white text-sm px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"

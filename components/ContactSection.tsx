@@ -32,7 +32,7 @@ export default function ContactSection() {
   }
 
   return (
-    <section className="bg-white py-24 px-4">
+    <section id="kontakt" className="bg-white py-24 px-4">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-14">
           <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
