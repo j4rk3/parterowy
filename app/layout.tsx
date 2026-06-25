@@ -4,6 +4,7 @@ import './globals.css'
 import Navbar from '@/components/Navbar'
 import ContactSection from '@/components/ContactSection'
 import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,8 +22,10 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className={inter.className}>
-        <Navbar />
-        <main>{children}</main>
+        <PageTransition>
+          <Navbar />
+          {children}
+        </PageTransition>
         <ContactSection />
         <Footer />
       </body>
