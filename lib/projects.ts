@@ -17,10 +17,7 @@ export const projects = [
       rooms: 3,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '22.61 m',
-      length: '27.78 m',
-    },
+    plotDimensions: { width: '22.61 m', length: '27.78 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '31.45 m²' },
       { name: 'Kuchnia', area: '10.85 m²' },
@@ -57,16 +54,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1_4.jpg',
+      '/images/parterowy1/1.jpg',
+      '/images/parterowy1/2.jpg',
+      '/images/parterowy1/3.jpg',
+      '/images/parterowy1/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy1/parterowy1_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy1/rzut.jpg',
+    sitePlan: '/images/parterowy1/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-4',
@@ -86,10 +82,7 @@ export const projects = [
       rooms: 4,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '24.00 m',
-      length: '30.00 m',
-    },
+    plotDimensions: { width: '24.00 m', length: '30.00 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '35.00 m²' },
       { name: 'Kuchnia', area: '12.00 m²' },
@@ -126,16 +119,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4_4.jpg',
+      '/images/parterowy4/1.jpg',
+      '/images/parterowy4/2.jpg',
+      '/images/parterowy4/3.jpg',
+      '/images/parterowy4/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy4/parterowy4_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy4/rzut.jpg',
+    sitePlan: '/images/parterowy4/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-7',
@@ -155,10 +147,7 @@ export const projects = [
       rooms: 3,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '20.00 m',
-      length: '25.00 m',
-    },
+    plotDimensions: { width: '20.00 m', length: '25.00 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '28.00 m²' },
       { name: 'Kuchnia', area: '10.00 m²' },
@@ -194,16 +183,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7_4.jpg',
+      '/images/parterowy7/1.jpg',
+      '/images/parterowy7/2.jpg',
+      '/images/parterowy7/3.jpg',
+      '/images/parterowy7/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/garage/parterowy7/parterowy7_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy7/rzut.jpg',
+    sitePlan: '/images/parterowy7/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-2',
@@ -223,10 +211,7 @@ export const projects = [
       rooms: 3,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '18.00 m',
-      length: '24.00 m',
-    },
+    plotDimensions: { width: '18.00 m', length: '24.00 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '28.00 m²' },
       { name: 'Kuchnia', area: '10.00 m²' },
@@ -258,16 +243,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2_4.jpg',
+      '/images/parterowy2/1.jpg',
+      '/images/parterowy2/2.jpg',
+      '/images/parterowy2/3.jpg',
+      '/images/parterowy2/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy2/parterowy2_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy2/rzut.jpg',
+    sitePlan: '/images/parterowy2/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-3',
@@ -287,10 +271,7 @@ export const projects = [
       rooms: 2,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '16.00 m',
-      length: '22.00 m',
-    },
+    plotDimensions: { width: '16.00 m', length: '22.00 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '25.00 m²' },
       { name: 'Kuchnia', area: '9.00 m²' },
@@ -321,16 +302,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3_4.jpg',
+      '/images/parterowy3/1.jpg',
+      '/images/parterowy3/2.jpg',
+      '/images/parterowy3/3.jpg',
+      '/images/parterowy3/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy3/parterowy3_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy3/rzut.jpg',
+    sitePlan: '/images/parterowy3/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-5',
@@ -350,10 +330,7 @@ export const projects = [
       rooms: 6,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '22.00 m',
-      length: '28.00 m',
-    },
+    plotDimensions: { width: '22.00 m', length: '28.00 m' },
     rooms: [
       { name: 'Pokój dzienny (lokal 1)', area: '28.00 m²' },
       { name: 'Kuchnia (lokal 1)', area: '10.00 m²' },
@@ -386,16 +363,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5_4.jpg',
+      '/images/parterowy5/1.jpg',
+      '/images/parterowy5/2.jpg',
+      '/images/parterowy5/3.jpg',
+      '/images/parterowy5/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy5/parterowy5_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy5/rzut.jpg',
+    sitePlan: '/images/parterowy5/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
   {
     slug: 'parterowy-6',
@@ -415,10 +391,7 @@ export const projects = [
       rooms: 3,
       type: 'murowany',
     },
-    plotDimensions: {
-      width: '19.00 m',
-      length: '25.00 m',
-    },
+    plotDimensions: { width: '19.00 m', length: '25.00 m' },
     rooms: [
       { name: 'Pokój dzienny', area: '30.00 m²' },
       { name: 'Kuchnia', area: '10.00 m²' },
@@ -450,16 +423,15 @@ export const projects = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6_2.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6_3.jpg',
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6_4.jpg',
+      '/images/parterowy6/1.jpg',
+      '/images/parterowy6/2.jpg',
+      '/images/parterowy6/3.jpg',
+      '/images/parterowy6/4.jpg',
     ],
-    floorPlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6_rzut.jpg',
-    sitePlan:
-      'https://www.parterowy.com.pl/app/assets/images/without_garage/parterowy6/parterowy6_sytuacja.jpg',
-    kulaUrl: null,
+    floorPlan: '/images/parterowy6/rzut.jpg',
+    sitePlan: '/images/parterowy6/sytuacja.jpg',
+    kulaUrl:
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
   },
 ]
 

@@ -1,26 +1,20 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { usePathname } from 'next/navigation'
 
-export default function PageTransition({
-  children,
-  ready,
-}: {
-  children: React.ReactNode
-  ready?: boolean
-}) {
-  const [visible, setVisible] = useState(false)
+export default function PageTransition({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  const [key, setKey] = useState(0)
 
   useEffect(() => {
-    if (ready === false) return
-    const timer = setTimeout(() => setVisible(true), 80)
-    return () => clearTimeout(timer)
-  }, [ready])
+    setKey(k => k + 1)
+  }, [pathname])
 
   return (
     <div
-      className="transition-opacity duration-700"
-      style={{ opacity: visible ? 1 : 0 }}
+      key={key}
+      className="animate-fadeIn"
     >
       {children}
     </div>
