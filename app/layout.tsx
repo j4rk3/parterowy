@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <html lang="pl">
       <body className={inter.className}>
-        <PageTransition>
-          <Navbar />
-          {children}
-        </PageTransition>
+        <Navbar />
+        <PageTransition>{children}</PageTransition>
         <ContactSection />
         <Footer />
       </body>

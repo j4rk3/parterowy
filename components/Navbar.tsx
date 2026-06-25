@@ -15,9 +15,9 @@ export default function Navbar() {
             <Image
               src="/images/logo.png"
               alt="S-BUD Parterowy"
-              width={120}
-              height={48}
-              className="object-contain md:w-[160px]"
+              width={100}
+              height={40}
+              className="object-contain"
               priority
             />
           </Link>
