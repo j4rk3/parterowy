@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { withGarage } from '@/lib/projects'
@@ -27,6 +26,8 @@ export default async function ProjectPage({
         >
           ← Powrót do listy
         </Link>
+
+        {/* Galeria + CTA */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
           <div className="lg:col-span-2">
             <ProjectGallery images={project.images} name={project.name} />
@@ -96,18 +97,44 @@ export default async function ProjectPage({
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-              Opis
+
+        {/* Opis + Strefy */}
+        <div className="mb-16">
+          <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+            Opis
+          </p>
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            {project.description}
+          </p>
+          <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+            Strefy
+          </p>
+          <p className="text-gray-600 text-sm leading-relaxed">
+            {project.zones}
+          </p>
+        </div>
+
+        {/* Spacer wirtualny */}
+        {project.kulaUrl && (
+          <div className="mb-16">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+              Spacer wirtualny
             </p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-4">
-              {project.description}
-            </p>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              {project.zones}
-            </p>
+            <div className="rounded-2xl overflow-hidden border border-gray-100">
+              <iframe
+                src={project.kulaUrl}
+                frameBorder={0}
+                scrolling="no"
+                allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+                allowFullScreen
+                style={{ width: '100%', height: '500px', background: '#000' }}
+              />
+            </div>
           </div>
+        )}
+
+        {/* Dane ogólne + Powierzchnia użytkowa */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
               Dane ogólne
@@ -148,8 +175,6 @@ export default async function ProjectPage({
               ))}
             </div>
           </div>
-        </div>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           <div>
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
               Powierzchnia użytkowa
@@ -166,23 +191,27 @@ export default async function ProjectPage({
               ))}
             </div>
           </div>
-          <div>
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-              Co składa się na cenę
-            </p>
-            <div className="space-y-1">
-              {project.construction.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex justify-between items-start py-2 border-b border-gray-50 text-sm gap-4"
-                >
-                  <span className="text-gray-400 shrink-0">{item.name}</span>
-                  <span className="text-gray-900 text-right">{item.value}</span>
-                </div>
-              ))}
-            </div>
+        </div>
+
+        {/* Co składa się na cenę */}
+        <div className="mb-16">
+          <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+            Co składa się na cenę
+          </p>
+          <div className="space-y-1">
+            {project.construction.map((item, i) => (
+              <div
+                key={i}
+                className="flex justify-between items-start py-2 border-b border-gray-50 text-sm gap-4"
+              >
+                <span className="text-gray-400 shrink-0">{item.name}</span>
+                <span className="text-gray-900 text-right">{item.value}</span>
+              </div>
+            ))}
           </div>
         </div>
+
+        {/* Rzut + Sytuacja */}
         <div className="mb-16">
           <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
             Rzut i sytuacja działki
@@ -200,23 +229,6 @@ export default async function ProjectPage({
             />
           </div>
         </div>
-        {project.kulaUrl && (
-          <div className="mb-16">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
-              Spacer wirtualny
-            </p>
-            <div className="rounded-2xl overflow-hidden border border-gray-100">
-              <iframe
-                src={project.kulaUrl}
-                frameBorder={0}
-                scrolling="no"
-                allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
-                allowFullScreen
-                style={{ width: '100%', height: '500px', background: '#000' }}
-              />
-            </div>
-          </div>
-        )}
       </div>
     </div>
   )
