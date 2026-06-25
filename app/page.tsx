@@ -173,24 +173,39 @@ export default function Home() {
                 src="/images/pageMain.jpg"
                 alt="S-BUD domy parterowe"
                 fill
-                className="object-cover object-center"
+                className="object-cover object-top md:object-center"
                 priority
                 onLoad={() => setHeroReady(true)}
               />
             </div>
             <div className="absolute inset-0 bg-black/40" />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-end px-4 pb-4 md:justify-center md:pb-0 xl:justify-start xl:pt-48 text-center">
+            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pb-6 gap-4 md:justify-end md:pb-0 xl:justify-start xl:pt-48 text-center">
+              {/* Mobile hero content */}
+              <div className="md:hidden text-center mb-4">
+                <p className="text-xs uppercase tracking-widest text-white/50 mb-3">
+                  S-BUD · Wodzisław Śląski
+                </p>
+                <h1 className="text-2xl font-medium text-white leading-tight mb-2">
+                  Domy parterowe
+                  <br />
+                  budowane z pasją
+                </h1>
+                <p className="text-white/60 text-xs leading-relaxed">
+                  Budujemy od fundamentów po stan deweloperski na Śląsku.
+                </p>
+              </div>
+              {/* Desktop typewriter */}
               <TypewriterHero ready={heroReady} />
 
               {/* Kafle — zdjęcie na górze, białe tło na dole */}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 w-full max-w-3xl mt-16 md:mt-0">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full max-w-sm md:max-w-3xl mt-4 md:mt-0">
                 <Link
                   href="/parterowy-z-garazem"
                   className="group overflow-hidden rounded-2xl transition-all duration-300"
                 >
-                  <div className="relative h-56">
+                  <div className="relative h-46 md:h-56">
                     <Image
                       src="/images/pageGarage.jpg"
                       alt="Dom parterowy z garażem"
@@ -220,7 +235,7 @@ export default function Home() {
                   href="/parterowy-bez-garazu"
                   className="group overflow-hidden rounded-2xl transition-all duration-300"
                 >
-                  <div className="relative h-56">
+                  <div className="relative h-46 md:h-56">
                     <Image
                       src="/images/pageNoGarage.jpg"
                       alt="Dom parterowy bez garażu"
