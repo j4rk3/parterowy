@@ -112,13 +112,21 @@ export default function Navbar() {
           >
             Obszar działalności
           </Link>
-          <Link
-            href="/kontakt"
-            className="text-lg font-medium text-gray-900 py-3 border-b border-gray-100 hover:text-white/60 transition-colors"
-            onClick={() => setIsOpen(false)}
+          <a
+            href="#kontakt"
+            className="text-lg font-medium text-white py-3 border-b border-white/10 hover:text-white/60 transition-colors block"
+            onClick={() => {
+              setIsOpen(false)
+              setTimeout(() => {
+                document
+                  .getElementById('kontakt')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }, 300)
+            }}
           >
             Kontakt
-          </Link>
+          </a>
+
           <a
             href="tel:577282100"
             className="mt-4 bg-gray-900 text-white text-base px-4 py-3 rounded-xl text-center font-medium"
