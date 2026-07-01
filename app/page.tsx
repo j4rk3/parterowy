@@ -2,7 +2,7 @@
 import SeoSection from '@/components/SeoSection'
 import Link from 'next/link'
 import Image from 'next/image'
-import { useEffect, useState, useRef, memo } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import { withGarage, withoutGarage } from '@/lib/projects'
 
 function useCountUp(target: number, duration: number, start: boolean) {
@@ -20,8 +20,8 @@ function useCountUp(target: number, duration: number, start: boolean) {
   }, [start, target, duration])
   return count
 }
+
 function TypewriterHero({ ready }: { ready: boolean }) {
-  console.log('render TypewriterHero, ready:', ready)
   const text = 'Domy parterowe budowane z pasją...'
   const [displayed, setDisplayed] = useState('')
   const [done, setDone] = useState(false)
@@ -76,7 +76,6 @@ function FadeIn({
 }) {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -87,7 +86,6 @@ function FadeIn({
     if (ref.current) observer.observe(ref.current)
     return () => observer.disconnect()
   }, [])
-
   return (
     <div
       ref={ref}
@@ -98,6 +96,7 @@ function FadeIn({
     </div>
   )
 }
+
 export default function Home() {
   const [scrolled, setScrolled] = useState(false)
   const [parallaxY, setParallaxY] = useState(0)
@@ -135,137 +134,188 @@ export default function Home() {
       <div
         className={`transition-opacity duration-700 ${heroReady ? 'opacity-100' : 'opacity-0'}`}
       >
-        {/* cały content — napis, kafle itd */}
-
         <style>{`
-        nav {
-          background: ${scrolled ? 'rgba(255,255,255,0.2)' : 'transparent'} !important;
-          backdrop-filter: ${scrolled ? 'blur(14px)' : 'none'} !important;
-          border-bottom: ${scrolled ? '0.5px solid rgba(0,0,0,0.08)' : 'none'} !important;
-          box-shadow: none !important;
-          transition: background 0.4s ease, border-color 0.4s ease;
-        }
-        nav a { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
-        nav button { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
-        nav a[href="tel:577282100"] {
-          background: ${scrolled ? '#111' : 'rgba(255,255,255,0.15)'} !important;
-          border: 1px solid ${scrolled ? 'transparent' : 'rgba(255,255,255,0.35)'} !important;
-          color: #fff !important;
-        }
-      `}</style>
+          nav {
+            background: ${scrolled ? 'rgba(255,255,255,0.2)' : 'transparent'} !important;
+            backdrop-filter: ${scrolled ? 'blur(14px)' : 'none'} !important;
+            border-bottom: ${scrolled ? '0.5px solid rgba(0,0,0,0.08)' : 'none'} !important;
+            box-shadow: none !important;
+            transition: background 0.4s ease, border-color 0.4s ease;
+          }
+          nav a { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
+          nav button { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
+          nav a[href="tel:577282100"] {
+            background: ${scrolled ? '#111' : 'rgba(255,255,255,0.15)'} !important;
+            border: 1px solid ${scrolled ? 'transparent' : 'rgba(255,255,255,0.35)'} !important;
+            color: #fff !important;
+          }
+        `}</style>
 
-        <div
-          className={`transition-opacity duration-700 ${heroReady ? 'opacity-100' : 'opacity-0'}`}
-        >
-          {/* hero section */}
+        <section className="relative w-full h-screen min-h-[700px] overflow-hidden">
+          <div
+            className="absolute w-full"
+            style={{
+              height: '120%',
+              top: '-10%',
+              transform: `translateY(${parallaxY * 0.3}px)`,
+            }}
+          >
+            <Image
+              src="/images/pageMain.jpg"
+              alt="S-BUD domy parterowe"
+              fill
+              className="object-cover object-top md:object-center"
+              priority
+              onLoad={() => setHeroReady(true)}
+            />
+          </div>
+          <div className="absolute inset-0 bg-black/40" />
 
-          {/* Hero */}
-          <section className="relative w-full h-screen min-h-[700px] overflow-hidden">
-            <div
-              className="absolute w-full"
-              style={{
-                height: '120%',
-                top: '-10%',
-                transform: `translateY(${parallaxY * 0.3}px)`,
-              }}
-            >
-              <Image
-                src="/images/pageMain.jpg"
-                alt="S-BUD domy parterowe"
-                fill
-                className="object-cover object-top md:object-center"
-                priority
-                onLoad={() => setHeroReady(true)}
-              />
+          {/* Mobile layout */}
+          <div className="md:hidden absolute inset-0 flex flex-col px-6 pt-24 pb-8">
+            <div className="text-center mb-5">
+              <p className="text-xs uppercase tracking-widest text-white/50 mb-3">
+                S-BUD · Wodzisław Śląski
+              </p>
+              <h1 className="text-2xl font-medium text-white leading-tight mb-2">
+                Domy parterowe
+                <br />
+                budowane z pasją
+              </h1>
+              <p className="text-white/60 text-xs leading-relaxed">
+                Budujemy od fundamentów po stan deweloperski na Śląsku.
+              </p>
             </div>
-            <div className="absolute inset-0 bg-black/40" />
 
-            <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pb-6 gap-4 md:justify-end md:pb-0 xl:justify-start xl:pt-48 text-center">
-              {/* Mobile hero content */}
-              <div className="md:hidden text-center mb-4">
-                <p className="text-xs uppercase tracking-widest text-white/50 mb-3">
-                  S-BUD · Wodzisław Śląski
-                </p>
-                <h1 className="text-2xl font-medium text-white leading-tight mb-2">
-                  Domy parterowe
-                  <br />
-                  budowane z pasją
-                </h1>
-                <p className="text-white/60 text-xs leading-relaxed">
-                  Budujemy od fundamentów po stan deweloperski na Śląsku.
-                </p>
-              </div>
-              {/* Desktop typewriter */}
-              <TypewriterHero ready={heroReady} />
+            <div className="flex flex-col gap-4 flex-1">
+              <Link
+                href="/parterowy-z-garazem"
+                className="group flex flex-col overflow-hidden rounded-2xl flex-1"
+              >
+                <div className="relative flex-1 min-h-0">
+                  <Image
+                    src="/images/pageGarage.jpg"
+                    alt="Dom parterowy z garażem"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-3 bg-white/10 backdrop-blur-md shrink-0">
+                  <h2 className="text-sm font-medium text-white mb-1">
+                    Z garażem
+                  </h2>
+                  <p className="text-xs text-white/65 mb-2">
+                    Miejsce dla auta zintegrowane z bryłą domu.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white/40">
+                      {withGarage.length} projekty
+                    </span>
+                    <span className="text-white/50 group-hover:text-white transition-colors">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </Link>
 
-              {/* Kafle — zdjęcie na górze, białe tło na dole */}
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 w-full max-w-sm md:max-w-3xl mt-4 md:mt-0">
-                <Link
-                  href="/parterowy-z-garazem"
-                  className="group overflow-hidden rounded-2xl transition-all duration-300"
-                >
-                  <div className="relative h-46 md:h-56">
-                    <Image
-                      src="/images/pageGarage.jpg"
-                      alt="Dom parterowy z garażem"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+              <Link
+                href="/parterowy-bez-garazu"
+                className="group flex flex-col overflow-hidden rounded-2xl flex-1"
+              >
+                <div className="relative flex-1 min-h-0">
+                  <Image
+                    src="/images/pageNoGarage.jpg"
+                    alt="Dom parterowy bez garażu"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-3 bg-white/10 backdrop-blur-md shrink-0">
+                  <h2 className="text-sm font-medium text-white mb-1">
+                    Bez garażu
+                  </h2>
+                  <p className="text-xs text-white/65 mb-2">
+                    Maksymalna przestrzeń użytkowa dla rodziny.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white/40">
+                      {withoutGarage.length} projekty
+                    </span>
+                    <span className="text-white/50 group-hover:text-white transition-colors">
+                      →
+                    </span>
                   </div>
-                  <div className="p-5 text-left bg-white/10 backdrop-blur-md">
-                    <h2 className="text-base font-medium text-white mb-1">
-                      Z garażem
-                    </h2>
-                    <p className="text-sm text-white/70 mb-3">
-                      Miejsce dla auta zintegrowane z bryłą domu.
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-white/50">
-                        {withGarage.length} projekty
-                      </span>
-                      <span className="text-white/50 group-hover:text-white transition-colors">
-                        →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-
-                <Link
-                  href="/parterowy-bez-garazu"
-                  className="group overflow-hidden rounded-2xl transition-all duration-300"
-                >
-                  <div className="relative h-46 md:h-56">
-                    <Image
-                      src="/images/pageNoGarage.jpg"
-                      alt="Dom parterowy bez garażu"
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="p-5 text-left bg-white/20 backdrop-blur-md">
-                    <h2 className="text-base font-medium text-white mb-1">
-                      Bez garażu
-                    </h2>
-                    <p className="text-sm text-white/70 mb-3">
-                      Maksymalna przestrzeń użytkowa dla rodziny.
-                    </p>
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs text-white/50">
-                        {withoutGarage.length} projekty
-                      </span>
-                      <span className="text-white/50 group-hover:text-white transition-colors">
-                        →
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
-          </section>
-        </div>
+          </div>
 
-        {/* Stats */}
+          {/* Desktop layout */}
+          <div className="hidden md:flex absolute inset-0 flex-col items-center justify-end pb-0 xl:justify-start xl:pt-48 text-center">
+            <TypewriterHero ready={heroReady} />
+            <div className="grid grid-cols-2 gap-4 w-full max-w-3xl px-4">
+              <Link
+                href="/parterowy-z-garazem"
+                className="group overflow-hidden rounded-2xl transition-all duration-300"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src="/images/pageGarage.jpg"
+                    alt="Dom parterowy z garażem"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-5 text-left bg-white/10 backdrop-blur-md">
+                  <h2 className="text-base font-medium text-white mb-1">
+                    Z garażem
+                  </h2>
+                  <p className="text-sm text-white/70 mb-3">
+                    Miejsce dla auta zintegrowane z bryłą domu.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white/50">
+                      {withGarage.length} projekty
+                    </span>
+                    <span className="text-white/50 group-hover:text-white transition-colors">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+              <Link
+                href="/parterowy-bez-garazu"
+                className="group overflow-hidden rounded-2xl transition-all duration-300"
+              >
+                <div className="relative h-56">
+                  <Image
+                    src="/images/pageNoGarage.jpg"
+                    alt="Dom parterowy bez garażu"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                </div>
+                <div className="p-5 text-left bg-white/10 backdrop-blur-md">
+                  <h2 className="text-base font-medium text-white mb-1">
+                    Bez garażu
+                  </h2>
+                  <p className="text-sm text-white/70 mb-3">
+                    Maksymalna przestrzeń użytkowa dla rodziny.
+                  </p>
+                  <div className="flex items-center justify-between">
+                    <span className="text-xs text-white/50">
+                      {withoutGarage.length} projekty
+                    </span>
+                    <span className="text-white/50 group-hover:text-white transition-colors">
+                      →
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         <section
           ref={statsRef}
           className="bg-white grid grid-cols-3 border-b border-gray-100"
@@ -295,7 +345,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        {/* SEO */}
+
         <SeoSection />
       </div>
     </div>
