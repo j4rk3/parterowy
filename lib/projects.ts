@@ -62,7 +62,7 @@ export const projects = [
     floorPlan: '/images/parterowy1/rzut.jpg',
     sitePlan: '/images/parterowy1/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxTqd/collection/7DJJr?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-4',
@@ -127,7 +127,7 @@ export const projects = [
     floorPlan: '/images/parterowy4/rzut.jpg',
     sitePlan: '/images/parterowy4/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxTs2/collection/7DJcV?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-7',
@@ -191,7 +191,7 @@ export const projects = [
     floorPlan: '/images/parterowy7/rzut.jpg',
     sitePlan: '/images/parterowy7/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxdt1/collection/7DJDk?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-2',
@@ -251,7 +251,7 @@ export const projects = [
     floorPlan: '/images/parterowy2/rzut.jpg',
     sitePlan: '/images/parterowy2/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-3',
@@ -310,7 +310,7 @@ export const projects = [
     floorPlan: '/images/parterowy3/rzut.jpg',
     sitePlan: '/images/parterowy3/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxTCV/collection/7DJcJ?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-5',
@@ -371,7 +371,7 @@ export const projects = [
     floorPlan: '/images/parterowy5/rzut.jpg',
     sitePlan: '/images/parterowy5/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxnpq/collection/7DJKF?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
   {
     slug: 'parterowy-6',
@@ -431,7 +431,7 @@ export const projects = [
     floorPlan: '/images/parterowy6/rzut.jpg',
     sitePlan: '/images/parterowy6/sytuacja.jpg',
     kulaUrl:
-      'https://kuula.co/share/hxTT1/collection/7DJXn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=0f44&priority=1',
+      'https://kuula.co/share/hxTQj/collection/7DJZD?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
 ]
 

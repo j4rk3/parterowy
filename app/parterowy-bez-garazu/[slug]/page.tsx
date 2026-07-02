@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { withoutGarage } from '@/lib/projects'
 import ProjectGallery from '@/components/ProjectGallery'
 import PlanViewer from '@/components/PlanViewer'
+import ProjectGrid from '@/components/ProjectGrid'
 
 export function generateStaticParams() {
   return withoutGarage.map((p) => ({ slug: p.slug }))

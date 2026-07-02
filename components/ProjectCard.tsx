@@ -2,7 +2,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Project } from '@/lib/projects'
 
-export default function ProjectCard({ project }: { project: Project }) {
+export default function ProjectCard({
+  project,
+  onImageLoad,
+}: {
+  project: Project
+  onImageLoad?: () => void
+}) {
   return (
     <Link
       href={`/${project.hasGarage ? 'parterowy-z-garazem' : 'parterowy-bez-garazu'}/${project.slug}`}
@@ -14,6 +20,7 @@ export default function ProjectCard({ project }: { project: Project }) {
           alt={project.name}
           fill
           className="object-cover group-hover:scale-105 transition-transform duration-700"
+          onLoad={onImageLoad}
         />
       </div>
       <div className="p-5">

@@ -1,5 +1,6 @@
 import { withoutGarage } from '@/lib/projects'
 import ProjectCard from '@/components/ProjectCard'
+import ProjectGrid from '@/components/ProjectGrid'
 
 export const metadata = {
   title: 'Domy parterowe bez garażu — S-BUD Wodzisław Śląski',
@@ -23,11 +24,7 @@ export default function WithoutGaragePage() {
             par, rodzin i seniorów.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
-          {withoutGarage.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-        </div>
+        <ProjectGrid projects={withoutGarage} />
       </div>
     </div>
   )
