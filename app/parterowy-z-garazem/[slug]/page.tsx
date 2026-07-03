@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { withGarage } from '@/lib/projects'
+import { supabase } from '@/lib/supabase'
 import ProjectGallery from '@/components/ProjectGallery'
 import PlanViewer from '@/components/PlanViewer'
 
@@ -16,6 +17,14 @@ export default async function ProjectPage({
   const { slug } = await params
   const project = withGarage.find((p) => p.slug === slug)
   if (!project) notFound()
+
+  const { data: priceData } = await supabase
+    .from('prices')
+    .select('price')
+    .eq('slug', slug)
+    .single()
+
+  const price = priceData?.price ?? project.price
 
   return (
     <div className="bg-white min-h-screen">
@@ -38,7 +47,7 @@ export default async function ProjectPage({
               {project.name}
             </h1>
             <div className="text-3xl font-medium text-gray-900 mb-1">
-              {project.price.toLocaleString('pl-PL')} zł
+              {price.toLocaleString('pl-PL')} zł
             </div>
             <p className="text-xs text-gray-400">cena brutto</p>
           </div>
@@ -240,7 +249,7 @@ export default async function ProjectPage({
                   {project.name}
                 </h1>
                 <div className="text-3xl font-medium text-gray-900 mb-1">
-                  {project.price.toLocaleString('pl-PL')} zł
+                  {price.toLocaleString('pl-PL')} zł
                 </div>
                 <p className="text-sm text-gray-400 mb-6">cena brutto</p>
                 <div className="grid grid-cols-2 gap-3 mb-6">

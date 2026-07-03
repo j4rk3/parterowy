@@ -1,14 +1,18 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { Project } from '@/lib/projects'
+import { supabase } from '@/lib/supabase'
 
 export default function ProjectCard({
   project,
   onImageLoad,
+  overridePrice,
 }: {
   project: Project
   onImageLoad?: () => void
+  overridePrice?: number
 }) {
+  const price = overridePrice ?? project.price
   return (
     <Link
       href={`/${project.hasGarage ? 'parterowy-z-garazem' : 'parterowy-bez-garazu'}/${project.slug}`}
@@ -37,7 +41,7 @@ export default function ProjectCard({
         </p>
         <div className="flex items-center justify-between">
           <span className="text-base font-medium text-gray-900">
-            {project.price.toLocaleString('pl-PL')} zł
+            {price.toLocaleString('pl-PL')} zł
           </span>
           <span className="text-sm text-gray-400 group-hover:text-gray-900 transition-colors">
             →
