@@ -5,6 +5,7 @@ import { supabase } from '@/lib/supabase'
 import ProjectGallery from '@/components/ProjectGallery'
 import PlanViewer from '@/components/PlanViewer'
 import ProjectGrid from '@/components/ProjectGrid'
+export const revalidate = 0
 
 export function generateStaticParams() {
   return withoutGarage.map((p) => ({ slug: p.slug }))
