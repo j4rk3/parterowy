@@ -346,6 +346,45 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="bg-white py-24 px-4">
+          <div className="max-w-5xl mx-auto">
+            <FadeIn>
+              <p className="text-xs uppercase tracking-widest text-gray-400 mb-2 text-center">
+                Realizacje
+              </p>
+              <h3 className="text-2xl font-medium text-gray-900 mb-14 text-center">
+                Zobacz nasze domy w akcji
+              </h3>
+            </FadeIn>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <FadeIn delay={0}>
+                <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/KdPN9DvguHo"
+                    title="Realizacja S-BUD — dom parterowy 1"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </FadeIn>
+              <FadeIn delay={150}>
+                <div className="aspect-video rounded-2xl overflow-hidden bg-black">
+                  <iframe
+                    className="w-full h-full"
+                    src="https://www.youtube.com/embed/_8Uqko7fZYw"
+                    title="Realizacja S-BUD — dom parterowy 2"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowFullScreen
+                    loading="lazy"
+                  />
+                </div>
+              </FadeIn>
+            </div>
+          </div>
+        </section>
+
         <SeoSection />
       </div>
     </div>

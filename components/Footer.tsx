@@ -103,13 +103,38 @@ export default function Footer() {
               href="https://www.facebook.com/parterowy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 bg-gray-100 hover:bg-gray-200 transition-colors rounded-xl px-4 py-3 text-sm text-gray-900"
+              className="inline-flex items-center gap-3 bg-gray-100 hover:bg-gray-200 transition-colors rounded-xl px-4 py-3 text-sm text-gray-900 mb-6"
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="#1877F2">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
               Obserwuj na Facebooku
             </a>
+            <h3 className="text-gray-900 text-xs font-semibold mb-4 uppercase tracking-wider">
+              Nasze osiedla
+            </h3>
+            <ul className="flex flex-col gap-3">
+              <li>
+                <a
+                  href="https://osiedlekasperczyka.pl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-gray-900 transition-colors"
+                >
+                  Osiedle Kasperczyka
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://osiedleczarneckiego.pl/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-gray-900 transition-colors"
+                >
+                  Osiedle Czarneckiego
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -199,7 +224,7 @@ export default function Footer() {
               </ul>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-center mb-8">
             <a
               href="https://www.facebook.com/parterowy"
               target="_blank"
@@ -210,6 +235,24 @@ export default function Footer() {
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
               </svg>
               Obserwuj na Facebooku
+            </a>
+          </div>
+          <div className="flex justify-center gap-6">
+            <a
+              href="https://osiedlekasperczyka.pl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Osiedle Kasperczyka
+            </a>
+            <a
+              href="https://osiedleczarneckiego.pl/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+            >
+              Osiedle Czarneckiego
             </a>
           </div>
         </div>

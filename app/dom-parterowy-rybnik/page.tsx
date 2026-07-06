@@ -1,8 +1,19 @@
-'use client'
-
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import type { Metadata } from 'next'
+import { Accordion } from '@/components/RybnikAccordion'
+
+export const metadata: Metadata = {
+  title: 'Firma budowlana Rybnik — Domy parterowe od projektu po wykończenie | S-BUD',
+  description:
+    'Budujemy domy parterowe w Rybniku i okolicach — od projektu, przez fundamenty, po stan deweloperski i pełne wykończenie. Sprawdź ofertę firmy budowlanej S-BUD.',
+  openGraph: {
+    title: 'Firma budowlana Rybnik — Domy parterowe od projektu po wykończenie',
+    description:
+      'Budujemy domy parterowe w Rybniku i okolicach — od projektu po pełne wykończenie wnętrz.',
+    images: [{ url: '/images/dom-parterowy-rybnik/header.jpg' }],
+  },
+}
 
 const accordionItems = [
   {
@@ -36,29 +47,6 @@ const accordionItems = [
       'Dostosowujemy się do Twoich potrzeb i budżetu. Służymy wsparciem i doradzamy najlepsze rozwiązania techniczne i architektoniczne.',
   },
 ]
-
-function Accordion({ title, content }: { title: string; content: string }) {
-  const [open, setOpen] = useState(false)
-
-  return (
-    <div className="border-b border-gray-100">
-      <button
-        className="w-full flex items-center justify-between py-4 text-left"
-        onClick={() => setOpen(!open)}
-      >
-        <span className="text-sm font-medium text-gray-900">{title}</span>
-        <span
-          className={`text-gray-400 transition-transform duration-200 ${open ? 'rotate-45' : ''}`}
-        >
-          +
-        </span>
-      </button>
-      {open && (
-        <p className="text-sm text-gray-500 leading-relaxed pb-4">{content}</p>
-      )}
-    </div>
-  )
-}
 
 export default function DomParterowryRybnik() {
   return (

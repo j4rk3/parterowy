@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
+import type { Metadata } from 'next'
 import { withoutGarage } from '@/lib/projects'
 import { supabase } from '@/lib/supabase'
 import ProjectGallery from '@/components/ProjectGallery'
@@ -9,6 +10,35 @@ export const revalidate = 0
 
 export function generateStaticParams() {
   return withoutGarage.map((p) => ({ slug: p.slug }))
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>
+}): Promise<Metadata> {
+  const { slug } = await params
+  const project = withoutGarage.find((p) => p.slug === slug)
+  if (!project) return {}
+
+  const title = `${project.name} — dom parterowy bez garażu ${project.general.usableArea} | S-BUD Wodzisław Śląski`
+  const description = `${project.name}: dom parterowy bez garażu, ${project.general.usableArea} powierzchni użytkowej, ${project.general.rooms} pokoje. Cena od ${project.price.toLocaleString('pl-PL')} zł brutto. ${project.description}`
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: project.images[0] }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [project.images[0]],
+    },
+  }
 }
 
 export default async function ProjectPage({
