@@ -140,9 +140,13 @@ export default async function ProjectPage({
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
               Opis
             </p>
-            <p className="text-gray-600 text-sm leading-relaxed mb-3">
+            <p className="text-gray-600 text-sm leading-relaxed">
               {project.description}
             </p>
+          </div>
+
+          {/* 6. Strefy */}
+          <div className="mb-6">
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
               Strefy
             </p>
@@ -151,7 +155,7 @@ export default async function ProjectPage({
             </p>
           </div>
 
-          {/* 6. Dane ogólne */}
+          {/* 7. Dane ogólne */}
           <div className="mb-6">
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
               Dane ogólne
@@ -173,14 +177,6 @@ export default async function ProjectPage({
                 },
                 { label: 'Ilość pokoi', value: String(project.general.rooms) },
                 { label: 'Typ domu', value: project.general.type },
-                {
-                  label: 'Min. szerokość działki',
-                  value: project.plotDimensions.width,
-                },
-                {
-                  label: 'Min. długość działki',
-                  value: project.plotDimensions.length,
-                },
               ].map((row) => (
                 <div
                   key={row.label}
@@ -193,7 +189,40 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* 7. Powierzchnia użytkowa */}
+          {/* 8. Minimalne wymiary działki */}
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+              Minimalne wymiary działki
+            </p>
+            <div className="space-y-1">
+              {[
+                { label: 'Szerokość', value: project.plotDimensions.width },
+                { label: 'Długość', value: project.plotDimensions.length },
+              ].map((row) => (
+                <div
+                  key={row.label}
+                  className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                >
+                  <span className="text-gray-400">{row.label}</span>
+                  <span className="text-gray-900 font-medium">{row.value}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 9. Sytuacja */}
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+              Sytuacja działki
+            </p>
+            <PlanViewer
+              src={project.sitePlan}
+              alt="Sytuacja działki"
+              label="Sytuacja działki"
+            />
+          </div>
+
+          {/* 10. Powierzchnia użytkowa */}
           <div className="mb-6">
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
               Powierzchnia użytkowa
@@ -204,14 +233,28 @@ export default async function ProjectPage({
                   key={i}
                   className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
                 >
-                  <span className="text-gray-400">{room.name}</span>
+                  <span className="text-gray-400">
+                    {i + 1}. {room.name}
+                  </span>
                   <span className="text-gray-900 font-medium">{room.area}</span>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* 8. Co składa się na cenę */}
+          {/* 11. Rzut */}
+          <div className="mb-6">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+              Rzut parteru
+            </p>
+            <PlanViewer
+              src={project.floorPlan}
+              alt="Rzut parteru"
+              label="Rzut parteru"
+            />
+          </div>
+
+          {/* 12. Co składa się na cenę */}
           <div className="mb-6">
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
               Co składa się na cenę
@@ -229,26 +272,7 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* 9. Rzut + Sytuacja */}
-          <div className="mb-6">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-4">
-              Rzut i sytuacja działki
-            </p>
-            <div className="flex flex-col gap-4">
-              <PlanViewer
-                src={project.floorPlan}
-                alt="Rzut parteru"
-                label="Rzut parteru"
-              />
-              <PlanViewer
-                src={project.sitePlan}
-                alt="Sytuacja działki"
-                label="Sytuacja działki"
-              />
-            </div>
-          </div>
-
-          {/* 10. Kontakt */}
+          {/* 13. Kontakt */}
           <div className="flex gap-3">
             <a
               href="tel:577282100"
@@ -395,14 +419,6 @@ export default async function ProjectPage({
                     value: String(project.general.rooms),
                   },
                   { label: 'Typ domu', value: project.general.type },
-                  {
-                    label: 'Min. szerokość działki',
-                    value: project.plotDimensions.width,
-                  },
-                  {
-                    label: 'Min. długość działki',
-                    value: project.plotDimensions.length,
-                  },
                 ].map((row) => (
                   <div
                     key={row.label}
@@ -418,22 +434,68 @@ export default async function ProjectPage({
             </div>
             <div>
               <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-                Powierzchnia użytkowa
+                Minimalne wymiary działki
               </p>
               <div className="space-y-1">
-                {project.rooms.map((room, i) => (
+                {[
+                  { label: 'Szerokość', value: project.plotDimensions.width },
+                  { label: 'Długość', value: project.plotDimensions.length },
+                ].map((row) => (
                   <div
-                    key={i}
+                    key={row.label}
                     className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
                   >
-                    <span className="text-gray-400">{room.name}</span>
+                    <span className="text-gray-400">{row.label}</span>
                     <span className="text-gray-900 font-medium">
-                      {room.area}
+                      {row.value}
                     </span>
                   </div>
                 ))}
               </div>
             </div>
+          </div>
+
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+              Sytuacja działki
+            </p>
+            <PlanViewer
+              src={project.sitePlan}
+              alt="Sytuacja działki"
+              label="Sytuacja działki"
+            />
+          </div>
+
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+              Powierzchnia użytkowa
+            </p>
+            <div className="space-y-1">
+              {project.rooms.map((room, i) => (
+                <div
+                  key={i}
+                  className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                >
+                  <span className="text-gray-400">
+                    {i + 1}. {room.name}
+                  </span>
+                  <span className="text-gray-900 font-medium">
+                    {room.area}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="mb-10">
+            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+              Rzut parteru
+            </p>
+            <PlanViewer
+              src={project.floorPlan}
+              alt="Rzut parteru"
+              label="Rzut parteru"
+            />
           </div>
 
           <div className="mb-10">
@@ -450,24 +512,6 @@ export default async function ProjectPage({
                   <span className="text-gray-900 text-right">{item.value}</span>
                 </div>
               ))}
-            </div>
-          </div>
-
-          <div className="mb-10">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
-              Rzut i sytuacja działki
-            </p>
-            <div className="grid grid-cols-2 gap-6">
-              <PlanViewer
-                src={project.floorPlan}
-                alt="Rzut parteru"
-                label="Rzut parteru"
-              />
-              <PlanViewer
-                src={project.sitePlan}
-                alt="Sytuacja działki"
-                label="Sytuacja działki"
-              />
             </div>
           </div>
         </div>
