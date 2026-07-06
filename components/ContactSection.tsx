@@ -19,7 +19,7 @@ export default function ContactSection() {
     if (!rodo) return alert('Proszę zaakceptować klauzulę RODO.')
     setStatus('sending')
     try {
-      const res = await fetch('https://formspree.io/f/TWOJ_KOD', {
+      const res = await fetch('https://formspree.io/f/mjgqkqpw', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
