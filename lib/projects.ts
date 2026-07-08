@@ -413,7 +413,7 @@ export const projects: Project[] = [
       },
       {
         label: 'Mieszkanie dla singla (lokal 2)',
-        url: 'https://kuula.co/share/hxnYB/collection/7DJHn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
+        url: 'https://kuula.co/share/hW289/collection/7H0xh?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1&enablejs=1&fid=1f8',
       },
     ],
   },
