@@ -45,6 +45,7 @@ export default function SeoSection() {
           alt="Domy parterowe S-BUD"
           fill
           sizes="100vw"
+          quality={65}
           loading="lazy"
           className="object-cover object-center"
         />

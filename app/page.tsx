@@ -109,8 +109,14 @@ export default function Home() {
   const count3 = useCountUp(100, 1500, statsVisible)
 
   useEffect(() => {
+    let ticking = false
     const handleScroll = () => {
-      setParallaxY(window.scrollY * 0.4)
+      if (ticking) return
+      ticking = true
+      requestAnimationFrame(() => {
+        setParallaxY(window.scrollY * 0.4)
+        ticking = false
+      })
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -143,6 +149,7 @@ export default function Home() {
               alt="S-BUD domy parterowe"
               fill
               sizes="100vw"
+              quality={70}
               className="object-cover object-top md:object-center"
               priority
               onLoad={() => setHeroReady(true)}
@@ -177,6 +184,7 @@ export default function Home() {
                     alt="Dom parterowy z garażem"
                     fill
                     sizes="(max-width: 767px) 90vw, 384px"
+                    quality={65}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -208,6 +216,7 @@ export default function Home() {
                     alt="Dom parterowy bez garażu"
                     fill
                     sizes="(max-width: 767px) 90vw, 384px"
+                    quality={65}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -245,6 +254,7 @@ export default function Home() {
                     alt="Dom parterowy z garażem"
                     fill
                     sizes="384px"
+                    quality={65}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -275,6 +285,7 @@ export default function Home() {
                     alt="Dom parterowy bez garażu"
                     fill
                     sizes="384px"
+                    quality={65}
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
