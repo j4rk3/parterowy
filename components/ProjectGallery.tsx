@@ -14,6 +14,22 @@ export default function ProjectGallery({
   const [activeImage, setActiveImage] = useState(0)
   const [lightbox, setLightbox] = useState<string | null>(null)
   const [mounted, setMounted] = useState(false)
+  const [mainLoaded, setMainLoaded] = useState(false)
+  const [thumbLoaded, setThumbLoaded] = useState<Record<number, boolean>>({})
+  const [lightboxLoaded, setLightboxLoaded] = useState(false)
+
+  // Reset fade-in state when the shown image changes (React-recommended
+  // "adjust state during render" pattern instead of an Effect).
+  const [prevActiveImage, setPrevActiveImage] = useState(activeImage)
+  if (activeImage !== prevActiveImage) {
+    setPrevActiveImage(activeImage)
+    setMainLoaded(false)
+  }
+  const [prevLightbox, setPrevLightbox] = useState(lightbox)
+  if (lightbox !== prevLightbox) {
+    setPrevLightbox(lightbox)
+    setLightboxLoaded(false)
+  }
 
   useEffect(() => {
     setMounted(true)
@@ -50,8 +66,9 @@ export default function ProjectGallery({
           alt={`${name} - zdjęcie ${activeImage + 1}`}
           fill
           sizes="(max-width: 767px) 100vw, 700px"
-          className="object-contain transition-opacity duration-300"
-          priority
+          className={`object-contain transition-opacity duration-500 ${mainLoaded ? 'opacity-100' : 'opacity-0'}`}
+          priority={activeImage === 0}
+          onLoad={() => setMainLoaded(true)}
         />
       </div>
       <div className="grid grid-cols-4 gap-2">
@@ -66,7 +83,8 @@ export default function ProjectGallery({
               alt={`miniatura ${i + 1}`}
               fill
               sizes="100px"
-              className="object-contain"
+              className={`object-contain transition-opacity duration-500 ${thumbLoaded[i] ? 'opacity-100' : 'opacity-0'}`}
+              onLoad={() => setThumbLoaded((prev) => ({ ...prev, [i]: true }))}
             />
           </button>
         ))}
@@ -108,10 +126,13 @@ export default function ProjectGallery({
           <img
             src={lightbox}
             alt="Powiększone zdjęcie"
+            onLoad={() => setLightboxLoaded(true)}
             style={{
               maxWidth: '90vw',
               maxHeight: '90vh',
               objectFit: 'contain',
+              opacity: lightboxLoaded ? 1 : 0,
+              transition: 'opacity 400ms ease',
             }}
           />
         </div>
