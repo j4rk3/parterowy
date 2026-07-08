@@ -1,5 +1,6 @@
 'use client'
 import SeoSection from '@/components/SeoSection'
+import YouTubeFacade from '@/components/YouTubeFacade'
 import Link from 'next/link'
 import Image from 'next/image'
 import { useEffect, useState, useRef } from 'react'
@@ -98,7 +99,6 @@ function FadeIn({
 }
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false)
   const [parallaxY, setParallaxY] = useState(0)
   const [statsVisible, setStatsVisible] = useState(false)
   const statsRef = useRef<HTMLDivElement>(null)
@@ -110,9 +110,7 @@ export default function Home() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const y = window.scrollY
-      setScrolled(y > 80)
-      setParallaxY(y * 0.4)
+      setParallaxY(window.scrollY * 0.4)
     }
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
@@ -131,27 +129,7 @@ export default function Home() {
 
   return (
     <div>
-      <div
-        className={`transition-opacity duration-700 ${heroReady ? 'opacity-100' : 'opacity-0'}`}
-      >
-        <style>{`
-          nav {
-            background: ${scrolled ? 'rgba(255,255,255,0.2)' : 'transparent'} !important;
-            backdrop-filter: ${scrolled ? 'blur(14px)' : 'none'} !important;
-            border-bottom: ${scrolled ? '0.5px solid rgba(0,0,0,0.08)' : 'none'} !important;
-            box-shadow: none !important;
-            transition: background 0.4s ease, border-color 0.4s ease;
-          }
-          nav a { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
-          nav button { color: ${scrolled ? '#111' : '#fff'} !important; transition: color 0.3s; }
-          nav a[href="tel:577282100"] {
-            background: ${scrolled ? '#111' : 'rgba(255,255,255,0.15)'} !important;
-            border: 1px solid ${scrolled ? 'transparent' : 'rgba(255,255,255,0.35)'} !important;
-            color: #fff !important;
-          }
-        `}</style>
-
-        <section className="relative w-full h-screen min-h-[700px] overflow-hidden">
+      <section className="relative w-full h-screen min-h-[700px] overflow-hidden">
           <div
             className="absolute w-full"
             style={{
@@ -164,6 +142,7 @@ export default function Home() {
               src="/images/pageMain.jpg"
               alt="S-BUD domy parterowe"
               fill
+              sizes="100vw"
               className="object-cover object-top md:object-center"
               priority
               onLoad={() => setHeroReady(true)}
@@ -197,6 +176,7 @@ export default function Home() {
                     src="/images/pageGarage.jpg"
                     alt="Dom parterowy z garażem"
                     fill
+                    sizes="(max-width: 767px) 90vw, 384px"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -227,6 +207,7 @@ export default function Home() {
                     src="/images/pageNoGarage.jpg"
                     alt="Dom parterowy bez garażu"
                     fill
+                    sizes="(max-width: 767px) 90vw, 384px"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -263,6 +244,7 @@ export default function Home() {
                     src="/images/pageGarage.jpg"
                     alt="Dom parterowy z garażem"
                     fill
+                    sizes="384px"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -292,6 +274,7 @@ export default function Home() {
                     src="/images/pageNoGarage.jpg"
                     alt="Dom parterowy bez garażu"
                     fill
+                    sizes="384px"
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
                 </div>
@@ -358,35 +341,16 @@ export default function Home() {
             </FadeIn>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <FadeIn delay={0}>
-                <div className="aspect-video rounded-2xl overflow-hidden bg-black">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/KdPN9DvguHo"
-                    title="Realizacja S-BUD — dom parterowy 1"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
+                <YouTubeFacade videoId="KdPN9DvguHo" title="Realizacja S-BUD — dom parterowy 1" />
               </FadeIn>
               <FadeIn delay={150}>
-                <div className="aspect-video rounded-2xl overflow-hidden bg-black">
-                  <iframe
-                    className="w-full h-full"
-                    src="https://www.youtube.com/embed/_8Uqko7fZYw"
-                    title="Realizacja S-BUD — dom parterowy 2"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    allowFullScreen
-                    loading="lazy"
-                  />
-                </div>
+                <YouTubeFacade videoId="_8Uqko7fZYw" title="Realizacja S-BUD — dom parterowy 2" />
               </FadeIn>
             </div>
           </div>
         </section>
 
-        <SeoSection />
-      </div>
+      <SeoSection />
     </div>
   )
 }

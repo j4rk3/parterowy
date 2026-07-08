@@ -23,7 +23,7 @@ export default function PlanViewer({ src, alt, label }: { src: string, alt: stri
           className="relative rounded-2xl overflow-hidden h-64 border border-gray-100 cursor-zoom-in"
           onClick={() => setLightbox(true)}
         >
-          <Image src={src} alt={alt} fill className="object-contain p-4" />
+          <Image src={src} alt={alt} fill sizes="(max-width: 767px) 90vw, 400px" className="object-contain p-4" />
         </div>
         <p className="text-xs text-gray-400 text-center mt-2">{label}</p>
       </div>
@@ -38,7 +38,7 @@ export default function PlanViewer({ src, alt, label }: { src: string, alt: stri
             style={{ position: 'fixed', top: '20px', right: '20px', color: 'white', fontSize: '28px', background: 'none', border: 'none', cursor: 'pointer', zIndex: 10000 }}
           >✕</button>
           <div style={{ position: 'relative', width: '80vw', height: '70vh' }}>
-            <Image src={src} alt={alt} fill style={{ objectFit: 'contain' }} />
+            <Image src={src} alt={alt} fill sizes="80vw" style={{ objectFit: 'contain' }} />
           </div>
         </div>,
         document.body

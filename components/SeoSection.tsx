@@ -44,6 +44,8 @@ export default function SeoSection() {
           src="/images/pageSEO.jpg"
           alt="Domy parterowe S-BUD"
           fill
+          sizes="100vw"
+          loading="lazy"
           className="object-cover object-center"
         />
         <div className="absolute inset-0 bg-black/55" />

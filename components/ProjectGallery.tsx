@@ -49,6 +49,7 @@ export default function ProjectGallery({
           src={images[activeImage]}
           alt={`${name} - zdjęcie ${activeImage + 1}`}
           fill
+          sizes="(max-width: 767px) 100vw, 700px"
           className="object-contain transition-opacity duration-300"
           priority
         />
@@ -64,6 +65,7 @@ export default function ProjectGallery({
               src={img}
               alt={`miniatura ${i + 1}`}
               fill
+              sizes="100px"
               className="object-contain"
             />
           </button>
@@ -102,6 +104,7 @@ export default function ProjectGallery({
           >
             ✕
           </button>
+          {/* eslint-disable-next-line @next/next/no-img-element -- lightbox needs intrinsic aspect ratio capped by viewport; next/image requires fixed width/height which doesn't fit this case, and it's only mounted on click (not part of initial load) */}
           <img
             src={lightbox}
             alt="Powiększone zdjęcie"

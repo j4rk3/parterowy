@@ -15,6 +15,7 @@ export default function ObszarDzialalnosci() {
           src="/images/obszar-dzialalnosci/header.jpg"
           alt="Obszar działalności S-BUD"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
         />
@@ -41,6 +42,7 @@ export default function ObszarDzialalnosci() {
                 src="/images/dom-parterowy-rybnik/header.jpg"
                 alt="Firma budowlana Rybnik"
                 fill
+                sizes="(max-width: 767px) 100vw, 50vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             </div>

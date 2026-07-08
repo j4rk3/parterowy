@@ -151,6 +151,7 @@ export default async function ProjectPage({
                       scrolling="no"
                       allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
                       allowFullScreen
+                      loading="lazy"
                       style={{
                         width: '100%',
                         height: '260px',
@@ -174,6 +175,7 @@ export default async function ProjectPage({
                     scrolling="no"
                     allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
                     allowFullScreen
+                    loading="lazy"
                     style={{
                       width: '100%',
                       height: '260px',
@@ -459,6 +461,7 @@ export default async function ProjectPage({
                       scrolling="no"
                       allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
                       allowFullScreen
+                      loading="lazy"
                       style={{
                         width: '100%',
                         height: '500px',
@@ -482,6 +485,7 @@ export default async function ProjectPage({
                     scrolling="no"
                     allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
                     allowFullScreen
+                    loading="lazy"
                     style={{
                       width: '100%',
                       height: '500px',

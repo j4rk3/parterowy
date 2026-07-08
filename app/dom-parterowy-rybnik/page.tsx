@@ -57,6 +57,7 @@ export default function DomParterowryRybnik() {
           src="/images/dom-parterowy-rybnik/header.jpg"
           alt="Nowoczesny dom parterowy z ogrodem zlokalizowany w Rybniku"
           fill
+          sizes="100vw"
           className="object-cover object-center"
           priority
         />
@@ -117,6 +118,8 @@ export default function DomParterowryRybnik() {
             src="/images/dom-parterowy-rybnik/nowoczesny.png"
             alt="Pracownicy wykonujący usługi budowlane w Rybniku"
             fill
+            sizes="(max-width: 895px) 100vw, 896px"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -168,6 +171,8 @@ export default function DomParterowryRybnik() {
             src="/images/dom-parterowy-rybnik/container-left.png"
             alt="Firma budowlana Rybnik"
             fill
+            sizes="(max-width: 895px) 100vw, 896px"
+            loading="lazy"
             className="object-cover"
           />
         </div>
@@ -203,6 +208,8 @@ export default function DomParterowryRybnik() {
             src="/images/dom-parterowy-rybnik/container.jpg"
             alt="Elegancki dom parterowy w Rybniku"
             fill
+            sizes="(max-width: 895px) 100vw, 896px"
+            loading="lazy"
             className="object-cover"
           />
         </div>
