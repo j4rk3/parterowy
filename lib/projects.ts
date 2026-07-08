@@ -1,4 +1,34 @@
-export const projects = [
+export type Project = {
+  slug: string
+  name: string
+  price: number
+  hasGarage: boolean
+  available: boolean
+  description: string
+  zones: string
+  general: {
+    buildingArea: string
+    usableArea: string
+    volume: string
+    roofAngle: string
+    rooms: number | string
+    type: string
+  }
+  plotDimensions: { width: string; length: string }
+  rooms: { name: string; area: string }[]
+  // Opcjonalny podział listy pomieszczeń na sekcje (np. dwa niezależne lokale).
+  // startIndex to indeks (0-based) w tablicy `rooms`, od którego zaczyna się dana sekcja.
+  roomGroups?: { label: string; startIndex: number }[]
+  construction: { name: string; value: string }[]
+  images: string[]
+  floorPlan: string
+  sitePlan: string
+  kulaUrl?: string
+  // Opcjonalnie wiele spacerów wirtualnych (np. osobno dla każdego lokalu).
+  kulaUrls?: { label: string; url: string }[]
+}
+
+export const projects: Project[] = [
   {
     slug: 'parterowy-1',
     name: 'Parterowy 1',
@@ -331,19 +361,23 @@ export const projects = [
     },
     plotDimensions: { width: '22.61 m', length: '27.78 m' },
     rooms: [
-      { name: 'Pokój dzienny (lokal 1)', area: '31.45 m²' },
-      { name: 'Kuchnia (lokal 1)', area: '10.85 m²' },
-      { name: 'Sypialnia I (lokal 1)', area: '10.85 m²' },
-      { name: 'Sypialnia II (lokal 1)', area: '12.70 m²' },
-      { name: 'Sypialnia III (lokal 1)', area: '9.15 m²' },
-      { name: 'Łazienka (lokal 1)', area: '4.70 m²' },
-      { name: 'Pom. gospodarcze (lokal 1)', area: '2.15 m²' },
-      { name: 'Wiatrołap (lokal 1)', area: '3.85 m²' },
-      { name: 'Komunikacja (lokal 1)', area: '8.40 m²' },
-      { name: 'Sypialnia (lokal 2)', area: '8.00 m²' },
-      { name: 'Wiatrołap (lokal 2)', area: '2.61 m²' },
-      { name: 'Łazienka (lokal 2)', area: '4.00 m²' },
-      { name: 'Salon z aneksem kuchennym (lokal 2)', area: '29.00 m²' },
+      { name: 'Pokój dzienny', area: '31.45 m²' },
+      { name: 'Kuchnia', area: '10.85 m²' },
+      { name: 'Sypialnia I', area: '10.85 m²' },
+      { name: 'Sypialnia II', area: '12.70 m²' },
+      { name: 'Sypialnia III', area: '9.15 m²' },
+      { name: 'Łazienka', area: '4.70 m²' },
+      { name: 'Pom. gospodarcze', area: '2.15 m²' },
+      { name: 'Wiatrołap', area: '3.85 m²' },
+      { name: 'Komunikacja', area: '8.40 m²' },
+      { name: 'Sypialnia', area: '8.00 m²' },
+      { name: 'Wiatrołap', area: '2.61 m²' },
+      { name: 'Łazienka', area: '4.00 m²' },
+      { name: 'Salon z aneksem kuchennym', area: '29.00 m²' },
+    ],
+    roomGroups: [
+      { label: 'Powierzchnia użytkowa lokalu 1', startIndex: 0 },
+      { label: 'Powierzchnia użytkowa lokalu 2', startIndex: 9 },
     ],
     construction: [
       { name: 'Fundamenty', value: 'płyta fundamentowa' },
@@ -372,8 +406,16 @@ export const projects = [
     ],
     floorPlan: '/images/parterowy5/rzut.jpg',
     sitePlan: '/images/parterowy5/sytuacja.jpg',
-    kulaUrl:
-      'https://kuula.co/share/hxnpq/collection/7DJKF?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
+    kulaUrls: [
+      {
+        label: 'Lokal 1',
+        url: 'https://kuula.co/share/hxnpq/collection/7DJKF?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
+      },
+      {
+        label: 'Mieszkanie dla singla (lokal 2)',
+        url: 'https://kuula.co/share/hxnYB/collection/7DJHn?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
+      },
+    ],
   },
   {
     slug: 'parterowy-6',
@@ -437,8 +479,6 @@ export const projects = [
       'https://kuula.co/share/hxTQj/collection/7DJZD?logo=0&info=0&fs=1&vr=1&sd=1&initload=0&thumbs=1',
   },
 ]
-
-export type Project = (typeof projects)[0]
 
 export const withGarage = projects.filter((p) => p.hasGarage)
 export const withoutGarage = projects.filter((p) => !p.hasGarage)

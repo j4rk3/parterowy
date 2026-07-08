@@ -116,25 +116,6 @@ export default async function ProjectPage({
             </div>
           </div>
 
-          {/* 4. Kula */}
-          {project.kulaUrl && (
-            <div className="mb-6">
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-                Spacer wirtualny
-              </p>
-              <div className="rounded-2xl overflow-hidden border border-gray-100">
-                <iframe
-                  src={project.kulaUrl}
-                  frameBorder={0}
-                  scrolling="no"
-                  allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
-                  allowFullScreen
-                  style={{ width: '100%', height: '260px', background: '#000' }}
-                />
-              </div>
-            </div>
-          )}
-
           {/* 5. Opis */}
           <div className="mb-6">
             <p className="text-xs uppercase tracking-widest text-gray-400 mb-2">
@@ -154,6 +135,55 @@ export default async function ProjectPage({
               {project.zones}
             </p>
           </div>
+
+          {/* 4. Kula */}
+          {project.kulaUrls && project.kulaUrls.length > 0 ? (
+            <div className="mb-6 flex flex-col gap-6">
+              {project.kulaUrls.map((kula) => (
+                <div key={kula.url}>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                    Spacer wirtualny — {kula.label}
+                  </p>
+                  <div className="rounded-2xl overflow-hidden border border-gray-100">
+                    <iframe
+                      src={kula.url}
+                      frameBorder={0}
+                      scrolling="no"
+                      allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+                      allowFullScreen
+                      style={{
+                        width: '100%',
+                        height: '260px',
+                        background: '#000',
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            project.kulaUrl && (
+              <div className="mb-6">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                  Spacer wirtualny
+                </p>
+                <div className="rounded-2xl overflow-hidden border border-gray-100">
+                  <iframe
+                    src={project.kulaUrl}
+                    frameBorder={0}
+                    scrolling="no"
+                    allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+                    allowFullScreen
+                    style={{
+                      width: '100%',
+                      height: '260px',
+                      background: '#000',
+                    }}
+                  />
+                </div>
+              </div>
+            )
+          )}
 
           {/* 7. Dane ogólne */}
           <div className="mb-6">
@@ -224,22 +254,61 @@ export default async function ProjectPage({
 
           {/* 10. Powierzchnia użytkowa */}
           <div className="mb-6">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-              Powierzchnia użytkowa
-            </p>
-            <div className="space-y-1">
-              {project.rooms.map((room, i) => (
-                <div
-                  key={i}
-                  className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
-                >
-                  <span className="text-gray-400">
-                    {i + 1}. {room.name}
-                  </span>
-                  <span className="text-gray-900 font-medium">{room.area}</span>
+            {project.roomGroups && project.roomGroups.length > 0 ? (
+              project.roomGroups.map((group, gi) => {
+                const nextStart =
+                  project.roomGroups![gi + 1]?.startIndex ??
+                  project.rooms.length
+                return (
+                  <div key={group.label} className={gi > 0 ? 'mt-6' : ''}>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                      {group.label}
+                    </p>
+                    <div className="space-y-1">
+                      {project.rooms
+                        .slice(group.startIndex, nextStart)
+                        .map((room, ri) => {
+                          const i = group.startIndex + ri
+                          return (
+                            <div
+                              key={i}
+                              className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                            >
+                              <span className="text-gray-400">
+                                {i + 1}. {room.name}
+                              </span>
+                              <span className="text-gray-900 font-medium">
+                                {room.area}
+                              </span>
+                            </div>
+                          )
+                        })}
+                    </div>
+                  </div>
+                )
+              })
+            ) : (
+              <>
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                  Powierzchnia użytkowa
+                </p>
+                <div className="space-y-1">
+                  {project.rooms.map((room, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                    >
+                      <span className="text-gray-400">
+                        {i + 1}. {room.name}
+                      </span>
+                      <span className="text-gray-900 font-medium">
+                        {room.area}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
 
           {/* 11. Rzut */}
@@ -376,22 +445,52 @@ export default async function ProjectPage({
             </p>
           </div>
 
-          {project.kulaUrl && (
-            <div className="mb-16">
-              <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
-                Spacer wirtualny
-              </p>
-              <div className="rounded-2xl overflow-hidden border border-gray-100">
-                <iframe
-                  src={project.kulaUrl}
-                  frameBorder={0}
-                  scrolling="no"
-                  allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
-                  allowFullScreen
-                  style={{ width: '100%', height: '500px', background: '#000' }}
-                />
-              </div>
+          {project.kulaUrls && project.kulaUrls.length > 0 ? (
+            <div className="mb-16 flex flex-col gap-10">
+              {project.kulaUrls.map((kula) => (
+                <div key={kula.url}>
+                  <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+                    Spacer wirtualny — {kula.label}
+                  </p>
+                  <div className="rounded-2xl overflow-hidden border border-gray-100">
+                    <iframe
+                      src={kula.url}
+                      frameBorder={0}
+                      scrolling="no"
+                      allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+                      allowFullScreen
+                      style={{
+                        width: '100%',
+                        height: '500px',
+                        background: '#000',
+                      }}
+                    />
+                  </div>
+                </div>
+              ))}
             </div>
+          ) : (
+            project.kulaUrl && (
+              <div className="mb-16">
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-6">
+                  Spacer wirtualny
+                </p>
+                <div className="rounded-2xl overflow-hidden border border-gray-100">
+                  <iframe
+                    src={project.kulaUrl}
+                    frameBorder={0}
+                    scrolling="no"
+                    allow="xr-spatial-tracking;gyroscope;accelerometer;autoplay;microphone;camera"
+                    allowFullScreen
+                    style={{
+                      width: '100%',
+                      height: '500px',
+                      background: '#000',
+                    }}
+                  />
+                </div>
+              </div>
+            )
           )}
 
           <div className="grid grid-cols-2 gap-8 mb-10">
@@ -467,24 +566,61 @@ export default async function ProjectPage({
           </div>
 
           <div className="mb-10">
-            <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
-              Powierzchnia użytkowa
-            </p>
-            <div className="space-y-1">
-              {project.rooms.map((room, i) => (
-                <div
-                  key={i}
-                  className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
-                >
-                  <span className="text-gray-400">
-                    {i + 1}. {room.name}
-                  </span>
-                  <span className="text-gray-900 font-medium">
-                    {room.area}
-                  </span>
+            {project.roomGroups && project.roomGroups.length > 0 ? (
+              project.roomGroups.map((group, gi) => {
+                const nextStart =
+                  project.roomGroups![gi + 1]?.startIndex ??
+                  project.rooms.length
+                return (
+                  <div key={group.label} className={gi > 0 ? 'mt-6' : ''}>
+                    <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                      {group.label}
+                    </p>
+                    <div className="space-y-1">
+                      {project.rooms
+                        .slice(group.startIndex, nextStart)
+                        .map((room, ri) => {
+                          const i = group.startIndex + ri
+                          return (
+                            <div
+                              key={i}
+                              className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                            >
+                              <span className="text-gray-400">
+                                {i + 1}. {room.name}
+                              </span>
+                              <span className="text-gray-900 font-medium">
+                                {room.area}
+                              </span>
+                            </div>
+                          )
+                        })}
+                    </div>
+                  </div>
+                )
+              })
+            ) : (
+              <>
+                <p className="text-xs uppercase tracking-widest text-gray-400 mb-3">
+                  Powierzchnia użytkowa
+                </p>
+                <div className="space-y-1">
+                  {project.rooms.map((room, i) => (
+                    <div
+                      key={i}
+                      className="flex justify-between items-center py-2 border-b border-gray-50 text-sm"
+                    >
+                      <span className="text-gray-400">
+                        {i + 1}. {room.name}
+                      </span>
+                      <span className="text-gray-900 font-medium">
+                        {room.area}
+                      </span>
+                    </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </>
+            )}
           </div>
 
           <div className="mb-10">
