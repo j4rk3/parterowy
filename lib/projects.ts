@@ -148,8 +148,8 @@ export const projects: Project[] = [
       { name: 'Elewacja', value: 'styropian i tynk silikonowy' },
     ],
     images: [
-      '/images/parterowy4/wiz1.jpg',
       '/images/parterowy4/wiz2.jpg',
+      '/images/parterowy4/wiz1.jpg',
       '/images/parterowy4/wiz3.jpg',
       '/images/parterowy4/wiz4.jpg',
     ],
